@@ -13,6 +13,8 @@ var login = require('./routes/login');
 var logistics = require('./routes/logistics');
 var financing = require('./routes/financing');
 
+const healthchecks = require('./lib/healthchecks');
+
 var app = express();
 
 // view engine setup
@@ -37,6 +39,15 @@ app.use('/item', item);
 app.use('/login', login);
 app.use('/logistics', logistics);
 app.use('/financing', financing);
+
+const CHECKS_FILE = __dirname + '/checks';
+const options = {
+  filename:   CHECKS_FILE,
+  timeout:    '5s',    // 5 seconds, can also pass duration in milliseconds
+  returnJSON:	true
+};
+
+app.use('/_healthchecks', healthchecks(options));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
