@@ -10,12 +10,12 @@
 
 # Check scripts or for text content in scripts
 # This line will cause a failure result since the script does not exist
-/scripts/myscript           use strict
+#/scripts/myscript           use strict
 
 # Check a sub-domain
-# Not currently used, example purposese only
+# Not currently used, for example purposes only
 #//some-subdomain.some-site.com/reviews Review Data
 
-# Check HTTP access, and for text content
+# Check HTTP access, including cheking for text content
 http://localhost:8000	BlueCompute Store!
 http://localhost:8000/inventory/	Dayton Meat Chopper
